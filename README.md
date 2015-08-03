@@ -6,6 +6,8 @@ Add a bar on your website to access side to side from public to admin pages.
 
 Support for multi-sites installation (with sub domain), context & privileges sensitiv and give access to 'Section', 'Form', 'CSS' tabs (only for users with 1, 2 or 6 privs level); 'Article' (with 'edit' or 'create new' option), 'Categories', 'Images' tabs. Access to Textpattern interface (with official logo branding), log-out link, i18n capable.
 
+Very discreet appearance to not interfere with the design of websites, appears on mouseover (only for users connected) to the top of the page (figured with a black horizontal line). Customizable colors (background and characters).
+
 
 ## Plugin help
 
