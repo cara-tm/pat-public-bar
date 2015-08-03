@@ -3,6 +3,7 @@
 Textpattern plugin
 
 Add a bar on your website to access side to side from public to admin pages.
+Support for multi-sites installation (with sub domain), context & privileges sensitiv and give access to 'Section', 'Form', 'CSS' tabs (only for users with 1, 2 or 6 privs level); 'Article' (with 'edit' or 'create new' option), 'Categories', 'Images' tabs. i18n capable.
 
 
 ## Plugin help
