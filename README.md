@@ -13,11 +13,11 @@ Notice: due to the support of multi-site installations the bar only disappear wh
 
 ## Attributes
 
-> interface String (optional): only for multi-site installations context, set your Textpattern back-office address (i.e. admin.example.com). Default: /root/textpattern (default TXP back-office address).
+> **interface** *String* (optional): only for multi-site installations context, set your Textpattern back-office address (i.e. admin.example.com). Default: /root/textpattern (default TXP back-office address).
 >
-> bgcolor String (optional): change the background color of the bar. Default: rgba(0, 0, 0, 0.8)
+> **bgcolor** *String* (optional): change the background color of the bar. Default: rgba(0, 0, 0, 0.8)
 >
-> color String (optional): change the font color into the bar. Default: #fff.
+> **color** *String* (optional): change the font color into the bar. Default: #fff.
 
 ## Changelog
 
