@@ -96,8 +96,8 @@ function _pat_protocol($type)
 {
 	$uri = strtolower( substr($_SERVER["SERVER_PROTOCOL"], 0, strpos($_SERVER["SERVER_PROTOCOL"], '/')) );
 
-	if($type === 'cookie')
-		$out = ($uri == 'http' ? '0' : '1');
+	if ($type === 'cookie')
+		$out = ($uri === 'http' ? '0' : '1');
 	else
 		$out = $uri.'://';
 
