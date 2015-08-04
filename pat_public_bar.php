@@ -5,12 +5,12 @@
  * @type:    Public
  * @prefs:   no
  * @order:   5
- * @version: 0.3.2
+ * @version: 0.3.3
  * @license: GPLv2
 */
 
 /**
- * This plugin tags registry.
+ * This plugin tag registry.
  *
  */
 if (class_exists('Textpattern_Tag_Registry')) {
