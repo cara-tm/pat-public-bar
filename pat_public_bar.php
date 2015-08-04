@@ -39,7 +39,7 @@ if (@txpinterface == 'admin') {
  * @param  $even  $step
  * @return HTML content for login-in users
  */
-function pat_public_bar($atts, $event, $step = NULL) {
+function pat_public_bar($atts, $things = NULL) {
 
 	global $pretext, $thisarticle, $thiscomment;
 
