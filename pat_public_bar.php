@@ -13,24 +13,20 @@ if (@txpinterface == 'admin') {
 
 	global $prefs, $txp_user;
 
-	// Retrieve current login-in user priv to create a cookie
-	$rs = safe_row('privs', 'txp_users', 'name = "'.doSlash($txp_user).'"');
-	$pat_priv = $rs['privs'];
+	if ( !isset($_COOKIE['txp_pat_public_bar']) ) {
+		// Retrieve current login-in user priv to create a cookie value.
+		$rs = safe_row('privs', 'txp_users', 'name = "'.doSlash($txp_user).'"');
+		$pat_priv = $rs['privs'];
 
-	setcookie('txp_pat_public_bar', $pat_priv, 0, '/', $prefs['siteurl'], _pat_protocol('cookie'));
-
-}
-
-if (@txpinterface == 'public') {
-
-	if( cs('txp_pat_public_bar') )
-			register_callback('pat_public_bar', 'textpattern');
+		setcookie('txp_pat_public_bar', $pat_priv, 0, '/', $prefs['siteurl'], _pat_protocol('cookie'));
+	}
 
 }
 
 /**
  * Inject an HTML block on the public side for all login-in users.
  * Allow access side to side from public to admin pages.
+ *
  * @param  $even  $step
  * @return HTML content for login-in users
  */
@@ -44,7 +40,6 @@ function pat_public_bar($atts, $event, $step = NULL) {
 		'color' 	=> '#fff',
 	), $atts));
 
-	
 	if ( cs('txp_pat_public_bar') ) {
 
 		$_pat_txp = _pat_protocol()._pat_sanitize_uri($interface); 
@@ -82,22 +77,23 @@ function pat_public_bar($atts, $event, $step = NULL) {
 
 EOT;
 
+	} else {
+		return '';
 	}
-	
 }
 
 /*
  * Check protocol
  *
- * @param string  $type
- * @return string  
+ * @param  string  $type
+ * @return string  URI or protocol security value for cookie
  */
 function _pat_protocol($type)
 {
 	$uri = strtolower( substr($_SERVER["SERVER_PROTOCOL"], 0, strpos($_SERVER["SERVER_PROTOCOL"], '/')) );
 
-	if ($type === 'cookie')
-		$out = ($uri === 'http' ? '0' : '1');
+	if($type === 'cookie')
+		$out = ($uri == 'http' ? '0' : '1');
 	else
 		$out = $uri.'://';
 
@@ -108,8 +104,8 @@ function _pat_protocol($type)
 /**
  * Keep only domain name and extension from URI
  * 
- * @param  $str  String
- * @return string
+ * @param  $str   String
+ * @return string URI without protocol
  */
 function _pat_sanitize_uri($str)
 {
