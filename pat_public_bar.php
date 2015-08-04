@@ -36,7 +36,7 @@ if (@txpinterface == 'admin') {
  * Inject an HTML block on the public side for all login-in users.
  * Allow access side to side from public to admin pages.
  *
- * @param  $even  $step
+ * @param  $atts  $things
  * @return HTML content for login-in users
  */
 function pat_public_bar($atts, $things = NULL) {
