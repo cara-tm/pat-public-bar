@@ -9,6 +9,15 @@
  * @license: GPLv2
 */
 
+/**
+ * This plugin tags registry.
+ *
+ */
+if (class_exists('Textpattern_Tag_Registry')) {
+	Txp::get('Textpattern_Tag_Registry')
+		->register('pat_public_bar');
+}
+
 if (@txpinterface == 'admin') {
 
 	global $prefs, $txp_user;
@@ -92,7 +101,7 @@ function _pat_protocol($type)
 {
 	$uri = strtolower( substr($_SERVER["SERVER_PROTOCOL"], 0, strpos($_SERVER["SERVER_PROTOCOL"], '/')) );
 
-	if($type === 'cookie')
+	if ($type === 'cookie')
 		$out = ($uri == 'http' ? '0' : '1');
 	else
 		$out = $uri.'://';
