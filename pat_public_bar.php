@@ -1,5 +1,5 @@
 /*
- * pat_public_barr Textpattern CMS plugin
+ * pat_public_bar Textpattern CMS plugin
  * @author:  © Patrick LEFEVRE, all rights reserved. <patrick[dot]lefevre[at]gmail[dot]com>
  * @link:    http://pat-public-bar.cara-tm.com
  * @type:    Public
