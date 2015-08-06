@@ -71,7 +71,7 @@ function pat_public_bar($atts, $things = NULL) {
 		if ( in_array(cs('txp_pat_public_bar'), $pat_privs_array) ) {
 
 			$section = ucfirst(gTxt('section')).'&nbsp;:&nbsp;<a href="'.$_pat_txp.'/index.php?event=section">'.gTxt('edit').'</a>';
-			$page = ' | '.ucfirst(gTxt('page')).'&nbsp;:&nbsp;<a href="'.$_pat_txp.'/index.php?event=page">'.gTxt('edit').'</a>';
+			$page = ' | '.ucfirst(gTxt('page')).'&nbsp;:&nbsp;<a href="'.$_pat_txp.'/index.php?event=page&amp;name='.$pretext['page'].'&amp;_txp_token='.form_token().'">'.gTxt('edit').' ('.gTxt('page').' '.$pretext['page'].')</a>';
 			$style = ' | '.strtoupper(gTxt('css')).'&nbsp;:&nbsp;<a href="'.$_pat_txp.'/index.php?event=css">'.gTxt('edit').'</a> | ';
 
 		}
