@@ -70,11 +70,12 @@ function pat_public_bar($atts, $things = NULL) {
 			$style = ' | '.strtoupper(gTxt('css')).'&nbsp;:&nbsp;<a href="'.$_pat_txp.'/index.php?event=css">'.gTxt('edit').'</a> | ';
 
 		}
+		$add = ucfirst(gTxt('article')).'&nbsp;:&nbsp;<a href="'.$_pat_txp.'/index.php?event=article&amp;Section='.$pretext['s'].'">'.gTxt('add').' ('.gTxt('section').' '.$pretext['s'].')</a>';
 		$article = (
-			$thisarticle['thisid'] ? 
-			ucfirst(gTxt('article')).'&nbsp;:&nbsp;<a href="'.$_pat_txp.'/index.php?event=article&amp;Section='.$pretext['s'].'">'.gTxt('add').'</a> / <a href="'.$_pat_txp.'/index.php?event=article&amp;step=edit&amp;ID='.$thisarticle['thisid'].'&amp;_txp_token='.form_token().'">'.gTxt('edit').'</a>' : 
-			ucfirst(gTxt('article')).'&nbsp;:&nbsp;<a href="'.$_pat_txp.'/index.php?event=article&amp;Section='.$pretext['s'].'">'.gTxt('add').'</a>' 
-			);
+		$thisarticle['thisid'] ? 
+		$add.' / <a href="'.$_pat_txp.'/index.php?event=article&amp;step=edit&amp;ID='.$thisarticle['thisid'].'&amp;_txp_token='.form_token().'">'.gTxt('edit').'</a>' : 
+		$add 
+		);
 		$category = ( ($thisarticle['category1'] || $thisarticle['category2']) ? '&nbsp;| '.ucfirst(gTxt('category')).'&nbsp;:&nbsp;<a href="'.$_pat_txp.'/index.php?event=category">'.gtxt('edit').'</a>' : '');
 		$comment = ($thisarticle['comments_count'] > 0 ? '&nbsp;| '.ucfirst(gTxt('comment')).'&nbsp;:&nbsp;<a href="'.$_pat_txp.'/index.php?event=discuss">'.gTxt('edit').'</a>' : '');
 		$image = ($thisarticle['article_image'] ? '&nbsp;| '.ucfirst(gTxt('image')).'&nbsp;:&nbsp;<a href="'.$_pat_txp.'/index.php?event=image&amp;step=image_edit&amp;id='._pat_one_pic().'&amp;_txp_token='.form_token().'">'.gTxt('edit').'</a>' : '');
