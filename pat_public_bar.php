@@ -22,6 +22,11 @@ if (@txpinterface == 'admin') {
 
 	global $prefs, $txp_user;
 
+	if ( gps('logout') ) {
+		// Delete cookie, redirect to logout
+		setcookie('txp_pat_public_bar', '', time() - 3600, '/', $prefs['siteurl'], _pat_protocol('cookie'));
+	}
+
 	if ( !isset($_COOKIE['txp_pat_public_bar']) ) {
 		// Retrieve current login-in user priv to create a cookie value.
 		$rs = safe_row('privs', 'txp_users', 'name = "'.doSlash($txp_user).'"');
