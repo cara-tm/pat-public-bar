@@ -2,7 +2,7 @@
  * pat_public_bar Textpattern CMS plugin
  * @author:  © Patrick LEFEVRE, all rights reserved. <patrick[dot]lefevre[at]gmail[dot]com>
  * @link:    http://pat-public-bar.cara-tm.com
- * @type:    Public
+ * @type:    Admin+Public
  * @prefs:   no
  * @order:   5
  * @version: 0.3.3
