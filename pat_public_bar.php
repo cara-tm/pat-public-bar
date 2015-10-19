@@ -56,9 +56,13 @@ function pat_public_bar($atts, $things = NULL) {
 	global $pretext, $thisarticle, $thiscomment;
 
 	extract(lAtts(array(
-		'interface' 	=> hu.'textpattern',
-		'bgcolor' 	=> 'rgba(0,0,0,.8)',
+		'interface' 	=> $prefs['pat_admin_url'],
+		'position' 	=> 'fixed',
+		'bgcolor' 	=> '#23282d',
 		'color' 	=> '#fff',
+		'title' 	=> '#84878b',
+		'hover' 	=> '#62bbdc',
+		'icon' 		=> '#ccc',
 	), $atts));
 
 	if ( cs('txp_pat_public_bar') ) {
