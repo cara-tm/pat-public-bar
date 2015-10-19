@@ -20,20 +20,10 @@ if (class_exists('Textpattern_Tag_Registry')) {
 
 if (@txpinterface == 'admin') {
 
-	global $prefs, $txp_user;
+	global $prefs;
 
-	if ( gps('logout') ) {
-		// Delete cookie, redirect to logout
-		setcookie('txp_pat_public_bar', '', time() - 3600, '/', $prefs['siteurl'], _pat_protocol('cookie'));
-	}
-
-	if ( !isset($_COOKIE['txp_pat_public_bar']) ) {
-		// Retrieve current login-in user priv to create a cookie value.
-		$rs = safe_row('privs', 'txp_users', 'name = "'.doSlash($txp_user).'"');
-		$pat_priv = $rs['privs'];
-
-		setcookie('txp_pat_public_bar', $pat_priv, 0, '/', $prefs['siteurl'], _pat_protocol('cookie'));
-	}
+	register_callback('_pat_public_bar_prefs', 'prefs', '', 1);
+	register_callback('_pat_public_bar_cleanup', 'plugin_lifecycle.pat_public_bar', 'deleted');
 
 }
 
@@ -146,4 +136,36 @@ function _pat_one_pic()
 		$pic = substr( $pics, 0, $pos );
 
 	return $pic;
+}
+
+
+/**
+ * Plugin prefs: TXP admin URL.
+ *
+ */
+function _pat_public_bar_prefs()
+{
+	global $prefs;
+
+	$pat_interface = hu.'textpattern';
+
+	if ( $prefs['siteurl'] != $_SERVER['HTTP_HOST'].preg_replace('#[/\\\\]$#', '', dirname(dirname($_SERVER['SCRIPT_NAME']))) )
+		$pat_interface = 'http'.( isset($_SERVER['HTTPS']) ? 's' : '' ).'://'."{$_SERVER['HTTP_HOST']}";
+
+	if (!safe_field ('name', 'txp_prefs', "pat_admin_url'"))
+		safe_insert('txp_prefs', "prefs_id=1, name='pat_admin_url', val='".$pat_interface."', type=1, event='admin', html='text_input', position=26");
+
+	safe_repair('txp_plugin');
+}
+
+
+/**
+ * Delete this plugin prefs.
+ *
+ */
+function _pat_public_bar_cleanup()
+{
+	
+	safe_delete('txp_prefs', "name='pat_admin_url'");
+	safe_repair('txp_plugin');
 }
