@@ -31,6 +31,19 @@ if (@txpinterface == 'admin') {
 
 }
 
+
+if (@txpinterface == 'public') {
+
+	global $prefs;
+
+	if ( gps('pat_logout') ) {
+		setcookie('txp_login_public', cs('txp_login_public'), time() - 3600, '/', '.'.$prefs['siteurl']);
+		header('Location:'.$prefs['pat_admin_url'].'/index.php?logout=1');
+	}
+
+}
+
+
 /**
  * Inject an HTML block on the public side for all login-in users.
  * Allow access side to side from public to admin pages.
