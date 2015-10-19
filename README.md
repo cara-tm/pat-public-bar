@@ -1,4 +1,4 @@
-# pat-public-bar
+# pat_public_bar
 
 Textpattern plugin
 
@@ -13,18 +13,23 @@ Very discreet appearance to not interfere with the design of websites, appears o
 
 Just add `<txp:pat_public_bar />` in your page templates where to show this bar on your website (public side) only available for login-in users.
 
-Notice: due to the support of multi-site installations the bar only disappear when the client's browser is closed.
-
 ## Attributes
 
-> **interface** *String* (optional): only for multi-site installations context, set your Textpattern back-office address (i.e. admin.example.com). Default: /root/textpattern (default TXP back-office address).
+> **position** *String* (optional): String (optional): CSS position of the bar. Set to absolute is better for small screens support. Default: `fixed`.
 >
-> **bgcolor** *String* (optional): change the background color of the bar. Default: rgba(0, 0, 0, 0.8)
+> **bgcolor** *String* (optional): change the background color of the bar. Default: `#23282d`.
 >
-> **color** *String* (optional): change the font color into the bar. Default: #fff.
+> **color** *String* (optional): change the font color into the bar. Default: `#fff`.
+> 
+> **title** *String* (optional): change the color of the different parts title. Default: `#84878b`.
+> 
+> **hover** *String* (optional): change the color of links on hover. Default: `#62bbdc`. 
+> 
+> **icon** String (optinal): change the color of the SVG icons. Default: `#ccc`.
 
 ## Changelog
 
+    15th October 2015: v 0.3.3. New UI, better support for multisite installation and 3 new attributes for customization.
     2d August 2015: v 0.3.2. Admin privs can access to "Section", "Page" and "Style" tabs.
     1st August 2015: v. 0.3.1. Add "bgcolor" and "color" attributes.
     30th July 2015: v. 0.3.0. Support for multi-site installations.
