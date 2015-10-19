@@ -65,16 +65,13 @@ function pat_public_bar($atts, $things = NULL) {
 		'icon' 		=> '#ccc',
 	), $atts));
 
-	if ( cs('txp_pat_public_bar') ) {
-
-		$_pat_txp = _pat_protocol()._pat_sanitize_uri($interface); 
+	if ( cs('txp_login_public') ) {
 
 		/* List of user privs who have full bar access:
 		   1 = administrators
 		   2 = administrator assistants
 		   6 = designers
 		*/
-
 		$pat_privs_array = array(1, 2, 6);
 
 		ob_end_clean();
