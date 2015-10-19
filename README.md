@@ -6,7 +6,7 @@ Add a bar on your website to access side to side from public to admin pages.
 
 Support for multi-sites installation (with sub domain), context & privileges sensitiv and give access to 'Section', 'Form', 'CSS' tabs (only for users with 1, 2 or 6 privs level); 'Article' (with 'edit' or 'create new' option), 'Categories', 'Images' tabs. Access to Textpattern interface (with official logo branding), log-out link, i18n capable.
 
-Very discreet appearance to not interfere with the design of websites, appears on mouseover (only for users connected) to the top of the page (figured with a black horizontal line). Customizable colors (background and characters).
+Very discreet appearance to not interfere with the design of websites, appears on mouseover (only for users connected) to the top of the page (figured with a black horizontal line). Customizable colors (icon colors, background, hover and characters).
 
 
 ## Plugin help
@@ -15,7 +15,7 @@ Just add `<txp:pat_public_bar />` in your page templates where to show this bar 
 
 ## Attributes
 
-> **position** *String* (optional): String (optional): CSS position of the bar. Set to absolute is better for small screens support. Default: `fixed`.
+> **position** *String* (optional): CSS position of the bar. Set to absolute is better for small screens support. Default: `fixed`.
 >
 > **bgcolor** *String* (optional): change the background color of the bar. Default: `#23282d`.
 >
