@@ -74,6 +74,9 @@ function pat_public_bar($atts, $things = NULL) {
 		*/
 		$pat_privs_array = array(1, 2, 6);
 
+		$name = substr(cs('txp_login_public'), 10);
+		$rs = safe_row('name, RealName, privs', 'txp_users', "name = '".doSlash($name)."'");
+
 		ob_end_clean();
 
 		if ( in_array(cs('txp_pat_public_bar'), $pat_privs_array) ) {
