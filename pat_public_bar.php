@@ -5,7 +5,7 @@
  * @type:    Admin+Public
  * @prefs:   no
  * @order:   5
- * @version: 0.3.3
+ * @version: 0.3.4
  * @license: GPLv2
 */
 
