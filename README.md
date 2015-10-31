@@ -15,7 +15,7 @@ Just add `<txp:pat_public_bar />` in your page templates where to show this bar 
 
 ## Attributes
 
-> **position** *String* (optional): CSS position of the bar. Set to absolute is better for small screens support. Default: `fixed`.
+> **position** *String* (optional): CSS position of the bar. Set to absolute is better for small screens support. Default: `fixed`. Note: version 0.3.4. automaticaly changes the position for you.
 >
 > **bgcolor** *String* (optional): change the background color of the bar. Default: `#23282d`.
 >
