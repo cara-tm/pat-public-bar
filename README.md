@@ -8,6 +8,8 @@ Support for multi-sites installation (with sub domain), context & privileges sen
 
 Very discreet appearance to not interfere with the design of websites, appears on mouseover (only for users connected) to the top of the page (figured with a black horizontal line) and all features into a dropdown menu on the left. Customizable colors (icons, background, hover links and characters).
 
+![pat_public_bar sneak peek](http://s27.postimg.org/uybm43ddf/sneak_peek.png)
+
 
 ## Plugin help
 
