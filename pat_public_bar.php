@@ -13,8 +13,8 @@
  * This plugin tag registry.
  *
  */
-if (class_exists('Textpattern_Tag_Registry')) {
-	Txp::get('Textpattern_Tag_Registry')
+if (class_exists('\Textpattern\Tag\Registry')) {
+	Txp::get('\Textpattern\Tag\Registry')
 		->register('pat_public_bar');
 }
 
