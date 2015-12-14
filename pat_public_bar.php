@@ -24,9 +24,18 @@ if (@txpinterface == 'admin') {
 
 	register_callback('_pat_public_bar_cleanup', 'plugin_lifecycle.pat_public_bar', 'deleted');
 
-	if ( $prefs['siteurl'] != $prefs['pat_admin_url'] )
+	if ( $prefs['siteurl'] != $_SERVER['HTTP_HOST'].preg_replace('#[/\\\\]$#', '', dirname(dirname($_SERVER['SCRIPT_NAME']))) ) {
+		$_pat_interface = 'http'.( isset($_SERVER['HTTPS']) ? 's' : '' ).'://'."{$_SERVER['HTTP_HOST']}";
+	} else {
+		$_pat_interface = hu.'textpattern';
+	}
+
+	if ( $prefs['siteurl'] != $_pat_interface )
 		// Restore the txp_login_public cookie with its value on the main domain if TXP is located on a sub domain.
-		setcookie('txp_login_public', cs('txp_login_public'), 0, '/', '.'.$prefs['siteurl']);
+		setcookie('txp_login_public', cs('txp_login_public'), 0, '/', '.'.$_pat_interface);
+
+	if ( $pretext['request-uri'] == 'logout' )
+		setcookie('txp_login_public', cs('txp_login_public'), time() - 3600, '/', '.'.$prefs['siteurl']);
 
 }
 
@@ -35,8 +44,13 @@ if (@txpinterface == 'public') {
 
 	global $prefs;
 
+	register_callback(array('pat_public_bar', 'pat_public_bar'), 'textpattern');
+
 	if ( gps('pat_logout') ) {
+		// Delete all domain txp_login_public cookie.
 		setcookie('txp_login_public', cs('txp_login_public'), time() - 3600, '/', '.'.$prefs['siteurl']);
+		sleep(3);
+		// Redirect to logout page.
 		header('Location:'.$prefs['pat_admin_url'].'/index.php?logout=1');
 	}
 
