@@ -169,26 +169,6 @@ function _pat_one_pic()
 
 
 /**
- * Plugin prefs: TXP admin URL.
- *
- */
-function _pat_public_bar_prefs()
-{
-	global $prefs;
-
-	$pat_interface = hu.'textpattern';
-
-	if ( $prefs['siteurl'] != $_SERVER['HTTP_HOST'].preg_replace('#[/\\\\]$#', '', dirname(dirname($_SERVER['SCRIPT_NAME']))) )
-		$pat_interface = 'http'.( isset($_SERVER['HTTPS']) ? 's' : '' ).'://'."{$_SERVER['HTTP_HOST']}";
-
-	if (!safe_field ('name', 'txp_prefs', "pat_admin_url'"))
-		safe_insert('txp_prefs', "prefs_id=1, name='pat_admin_url', val='".$pat_interface."', type=1, event='admin', html='text_input', position=26");
-
-	safe_repair('txp_plugin');
-}
-
-
-/**
  * Delete this plugin prefs.
  *
  */
