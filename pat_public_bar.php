@@ -22,7 +22,6 @@ if (@txpinterface == 'admin') {
 
 	global $prefs;
 
-	register_callback('_pat_public_bar_prefs', 'prefs', '', 1);
 	register_callback('_pat_public_bar_cleanup', 'plugin_lifecycle.pat_public_bar', 'deleted');
 
 	if ( $prefs['siteurl'] != $prefs['pat_admin_url'] )
